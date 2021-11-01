@@ -49,6 +49,3 @@ class TestCalc4(unittest.TestCase):
         interpreter = Interpreter(Lexer('10 *'))
         with self.assertRaises(Exception):
             interpreter.expr()
-
-if __name__ == '__main__':
-    unittest.main()

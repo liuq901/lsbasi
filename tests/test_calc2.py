@@ -82,6 +82,3 @@ class TestCalc2(unittest.TestCase):
         interpreter = Interpreter(' 27   -  7  ')
         result = interpreter.expr()
         self.assertEqual(result, 20)
-
-if __name__ == '__main__':
-    unittest.main()
