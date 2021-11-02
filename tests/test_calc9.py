@@ -106,7 +106,7 @@ class TestCalc9(unittest.TestCase):
             interpreter.interpret()
 
     def test_statement(self):
-        with open('pas/assignments.txt', 'r') as fin:
+        with open('data/part9.txt', 'r') as fin:
             text = fin.read()
         interpreter = Interpreter(Parser(Lexer(text)))
         interpreter.interpret()
