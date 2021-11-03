@@ -7,3 +7,4 @@ from .test_calc8 import TestCalc8
 from .test_calc9 import TestCalc9
 from .test_calc10 import TestCalc10
 from .test_calc11 import TestCalc11
+from .test_calc12 import TestCalc12
