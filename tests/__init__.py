@@ -9,3 +9,4 @@ from .test_calc10 import TestCalc10
 from .test_calc11 import TestCalc11
 from .test_calc12 import TestCalc12
 from .test_calc15 import TestCalc15
+from .test_calc16 import TestCalc16
