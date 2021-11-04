@@ -545,6 +545,7 @@ class Symbol(object):
     def __init__(self, name, type=None):
         self.name = name
         self.type = type
+        self.scope_level = 0
 
 class BuiltinTypeSymbol(Symbol):
     def __init__(self, name):
@@ -620,6 +621,7 @@ class ScopedSymbolTable(object):
     def insert(self, symbol):
         self.log(f'Insert: {symbol.name}')
         self._symbols[symbol.name] = symbol
+        symbol.scope_level = self.scope_level
 
     def lookup(self, name, current_scope_only=False):
         self.log(f'Lookup: {name} (Scope name: {self.scope_name})')
@@ -878,14 +880,14 @@ class Interpreter(NodeVistor):
 
     def visit_ProcedureCall(self, node):
         proc_name = node.proc_name
+        proc_symbol = node.proc_symbol
 
         ar = ActivationRecord(
             name=proc_name,
             type=ARType.PROCEDURE,
-            nesting_level=2,
+            nesting_level=proc_symbol.scope_level + 1,
         )
 
-        proc_symbol = node.proc_symbol
         formal_params = proc_symbol.formal_params
         actual_params = node.actual_params
 

@@ -12,3 +12,4 @@ from .test_calc15 import TestCalc15
 from .test_calc16 import TestCalc16
 from .test_calc17 import TestCalc17
 from .test_calc18 import TestCalc18
+from .test_calc19 import TestCalc19
