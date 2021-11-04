@@ -861,6 +861,8 @@ class Interpreter(NodeVistor):
         self.log(f'LEAVE: PROGRAM {program_name}')
         self.log(self.call_stack)
 
+        self.call_stack.pop()
+
     def visit_Block(self, node):
         for declaration in node.declarations:
             self.visit(declaration)

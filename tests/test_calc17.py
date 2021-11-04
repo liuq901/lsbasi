@@ -1,5 +1,6 @@
 import unittest
 
+from calc17 import CallStack
 from calc17 import ErrorCode
 from calc17 import Interpreter
 from calc17 import Lexer
@@ -9,6 +10,10 @@ from calc17 import ParserError
 from calc17 import SemanticAnalyzer
 from calc17 import SemanticError
 from calc17 import TokenType
+
+class TestCallStack(CallStack):
+    def pop(self):
+        pass
 
 class TestCalc17(unittest.TestCase):
     def makeLexer(self, text):
@@ -34,6 +39,7 @@ class TestCalc17(unittest.TestCase):
         semantic_analyzer.visit(tree)
 
         interpreter = Interpreter(tree)
+        interpreter.call_stack = TestCallStack()
         return interpreter
 
     def test_tokens(self):
